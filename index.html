@@ -156,23 +156,11 @@
      NAVIGATION
   ============================================= */
   .nav {
-    position: fixed;
-    top: 36px; /* height of ann-bar approx */
-    left: 0; right: 0;
-    z-index: 1000;
-    padding: 1.4rem 0;
-    transition: top var(--t) var(--ease),
-                background var(--t) var(--ease),
-                padding var(--t) var(--ease),
-                backdrop-filter var(--t) var(--ease);
-  }
-  .nav.scrolled {
-    top: 0;
-    background: rgba(9,24,36,0.94);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    padding: 0.9rem 0;
-    box-shadow: 0 2px 40px rgba(9,24,36,0.4);
+    position: relative;
+    background: var(--navy-darkest);
+    padding: 1.1rem 0;
+    z-index: 100;
+    box-shadow: 0 2px 24px rgba(9,24,36,0.35);
   }
   .nav-inner {
     display: flex;
@@ -186,7 +174,7 @@
     border-radius: 8px;
     transition: height var(--t) var(--ease);
   }
-  .nav.scrolled .nav-logo img { height: 44px; }
+
 
   .nav-links {
     display: flex;
@@ -266,7 +254,7 @@
     flex-direction: column;
     justify-content: flex-end;
     overflow: hidden;
-    padding-top: calc(36px + 80px);
+    padding-top: 0;
   }
 
   /* Animated gradient sky */
@@ -1220,9 +1208,7 @@
     }
     .fac-hdr, .mem-hdr, .prog-hdr, .exp-hdr { margin-bottom: 2.5rem; }
 
-    /* Nav */
-    .nav { top: 36px; }
-    .nav.scrolled { top: 0; }
+
   }
 
   @media (max-width: 400px) {
@@ -1988,16 +1974,6 @@
   </footer>
 
   <script>
-  // ============================================
-  // NAV SCROLL
-  // ============================================
-  const nav = document.getElementById("mainNav");
-  const annBarH = 36;
-
-  window.addEventListener("scroll", () => {
-    nav.classList.toggle("scrolled", window.scrollY > 50);
-  });
-
   // ============================================
   // MOBILE NAV
   // ============================================
