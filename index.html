@@ -737,11 +737,12 @@
 
   .mem-grid {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 1.25rem;
+    grid-template-columns: repeat(5,1fr);
+    gap: 0.9rem;
     align-items: start;
   }
-  @media (max-width: 1060px) { .mem-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 1200px) { .mem-grid { grid-template-columns: repeat(3,1fr); } }
+  @media (max-width: 860px)  { .mem-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 560px)  { .mem-grid { grid-template-columns: 1fr; } }
 
   .mem-card {
@@ -752,8 +753,8 @@
     transition: transform var(--t), box-shadow var(--t);
   }
   .mem-card:hover { transform: translateY(-7px); box-shadow: var(--shadow-lg); }
-  .mem-card.star { background: var(--navy); color: white; transform: scale(1.035); }
-  .mem-card.star:hover { transform: scale(1.035) translateY(-7px); box-shadow: var(--shadow-xl); }
+  .mem-card.star { background: var(--navy); color: white; transform: scale(1.02); }
+  .mem-card.star:hover { transform: scale(1.02) translateY(-7px); box-shadow: var(--shadow-xl); }
 
   @media (max-width: 1060px) {
     .mem-card.star { transform: scale(1); }
@@ -1234,6 +1235,42 @@
   .succ-ico i       { color: var(--gold-light); font-size: 3rem; }
   .foot-soc i       { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
   .foot-soc:hover i { color: white; }
+
+
+  /* Captain card — exclusive founding style */
+  .mem-card.captain {
+    background: linear-gradient(155deg, #1C0A00 0%, #2E1200 40%, #1A0800 100%);
+    color: white;
+    border: 1px solid rgba(200,146,58,0.35);
+    position: relative;
+    overflow: hidden;
+  }
+  .mem-card.captain::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+  }
+  .mem-card.captain .mem-card-head { border-bottom-color: rgba(200,146,58,0.2); }
+  .mem-card.captain .mem-name { color: var(--gold-light); }
+  .mem-card.captain .mem-sub { color: rgba(232,192,112,0.55); }
+  .mem-card.captain .mem-price-val { color: var(--gold-light); }
+  .mem-card.captain .mem-price-note { color: rgba(232,192,112,0.4); }
+  .mem-card.captain .mem-feats li { color: rgba(232,192,112,0.8); }
+  .mem-card.captain .mem-feats li::before { color: var(--gold-light); }
+  .mem-card.captain .mem-badge { background: linear-gradient(90deg, var(--copper), var(--gold)); }
+  .mem-card.captain .mem-ico i { color: var(--gold-light); }
+  .mem-card.captain .mem-btn {
+    background: linear-gradient(90deg, var(--amber), var(--gold));
+    border-color: transparent;
+    color: #1C0A00;
+    font-weight: 800;
+  }
+  .mem-card.captain .mem-btn:hover {
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  }
+  .mem-card.captain:hover { transform: translateY(-7px); box-shadow: 0 20px 60px rgba(190,107,38,0.3); }
 
   </style>
 </head>
@@ -1810,6 +1847,33 @@
           </div>
         </div>
 
+        <!-- Captain — Exclusive Founding -->
+        <div class="mem-card captain sr d4">
+          <div class="mem-card-head">
+            <div class="mem-badge">Exclusive · Founding</div>
+            <span class="mem-ico"><i class="fa-solid fa-ship"></i></span>
+            <div class="mem-name">Captain</div>
+            <div class="mem-sub">Invitation Only</div>
+            <div class="mem-price">
+              <div class="mem-price-val">By Application</div>
+              <div class="mem-price-note">Annual · Strictly limited</div>
+            </div>
+          </div>
+          <div class="mem-card-body">
+            <ul class="mem-feats">
+              <li>All Lighthouse Elite benefits included</li>
+              <li>Permanent "Captain" designation on founding wall</li>
+              <li>Complimentary guest annual membership</li>
+              <li>4 private coaching sessions per month</li>
+              <li>Dedicated weekly reserved court time</li>
+              <li>Custom welcome package at opening day</li>
+              <li>Invitation to annual Founders Gala</li>
+              <li>Direct access to club leadership team</li>
+            </ul>
+            <a href="#register" class="mem-btn">Apply for Consideration</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -2040,6 +2104,7 @@
                 <option value="harbor">Harbor — Core Membership</option>
                 <option value="mariner">Mariner — Premier Membership</option>
                 <option value="lighthouse">Lighthouse — Elite / Founding</option>
+                <option value="captain">Captain — Exclusive Founding (By Application)</option>
                 <option value="unsure">Not sure yet — tell me more</option>
               </select>
             </div>
